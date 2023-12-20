@@ -9,6 +9,6 @@ show = st.checkbox('I agree the terms and conditions')
 
 if show:
     st.write(pd.DataFrame({
-    'Students': ['John', 'Lofa', 'Siti', 'Amy'],
-    'Attendance Status': ['yes', 'yes', 'yes', 'no']
-    }))
+        'Students': ['John', 'Lofa', 'Siti', 'Amy'],
+        'Attendance Status': ['yes', 'yes', 'yes', 'no']
+      }))
