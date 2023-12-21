@@ -2,8 +2,7 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import pickle
-from sklearn import tree
-from sklearn.tree import plot_tree
+from sklearn.naive_bayes import GaussianNB
 
 st.write("# Simple Iris Flower Prediction App")
 st.write("This app predicts the **Iris flower** type!")
@@ -27,10 +26,10 @@ df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df)
 
-modeltreeIris = pickle.load(open("IrisTree2.h5", "rb")) 
+modelGaussianIris = pickle.load(open("IrisGaussian.h5", "rb")) 
 
-prediction = modeltreeIris.predict(df)
-prediction_proba = modeltreeIris.predict_proba(df)
+prediction = modelGaussianIris.predict(df)
+prediction_proba = modelGaussianIris.predict_proba(df)
 
 st.subheader('Class labels and their corresponding index number')
 st.write(Y.unique())
