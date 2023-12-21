@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import seaborn as sns
+import pickle
 from sklearn.neighbors import KNeighborsClassifier
 
 st.write("# Simple Iris Flower Prediction App")
@@ -25,15 +26,7 @@ df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df)
 
-data = sns.load_dataset('iris')
-X = data.drop(['species'],axis=1)
-Y = data.species.copy()
-
-import pickle
-
-
 modelKNNIris = pickle.load(open("IrisKNN.h5", "rb")) 
-modelKNNIris.fit(X, Y)
 
 prediction = modelKNNIris.predict(df)
 prediction_proba = modelKNNIris.predict_proba(df)
