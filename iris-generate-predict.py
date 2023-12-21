@@ -2,7 +2,8 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import pickle
-from sklearn.neighbors import KNeighborsClassifier
+from sklearn import tree
+from sklearn.tree import plot_tree
 
 st.write("# Simple Iris Flower Prediction App")
 st.write("This app predicts the **Iris flower** type!")
@@ -26,10 +27,10 @@ df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df)
 
-modelKNNIris = pickle.load(open("IrisKNN.h5", "rb")) 
+modeltreeIris = pickle.load(open("IrisTree.h5", "rb")) 
 
-prediction = modelKNNIris.predict(df)
-prediction_proba = modelKNNIris.predict_proba(df)
+prediction = modeltreeIris.predict(df)
+prediction_proba = modeltreeIris.predict_proba(df)
 
 st.subheader('Class labels and their corresponding index number')
 st.write(Y.unique())
