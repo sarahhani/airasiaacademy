@@ -29,11 +29,14 @@ data = sns.load_dataset('iris')
 X = data.drop(['species'],axis=1)
 Y = data.species.copy()
 
-modelGaussianIris = GaussianNB()
-modelGaussianIris.fit(X, Y)
+import pickle
 
-prediction = modelGaussianIris.predict(df)
-prediction_proba = modelGaussianIris.predict_proba(df)
+
+modelKNNIris = pickle.dump(model, open("IrisKNN.h5", "wb")) #wb: write binary
+modelKNNIris.fit(X, Y)
+
+prediction = modelKNNIris.predict(df)
+prediction_proba = modelKNNIris.predict_proba(df)
 
 st.subheader('Class labels and their corresponding index number')
 st.write(Y.unique())
