@@ -27,7 +27,7 @@ df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df)
 
-modeltreeIris = pickle.load(open("IrisTree.h5", "rb")) 
+modeltreeIris = pickle.load(open("IrisTree2.h5", "rb")) 
 
 prediction = modeltreeIris.predict(df)
 prediction_proba = modeltreeIris.predict_proba(df)
