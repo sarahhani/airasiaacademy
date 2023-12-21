@@ -26,6 +26,10 @@ df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df)
 
+data = sns.load_dataset('iris')
+X = data.drop(['species'],axis=1)
+Y = data.species.copy()
+
 modelGaussianIris = pickle.load(open("IrisGaussian.h5", "rb")) 
 
 prediction = modelGaussianIris.predict(df)
