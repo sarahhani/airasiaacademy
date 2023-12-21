@@ -32,7 +32,7 @@ Y = data.species.copy()
 import pickle
 
 
-modelKNNIris = pickle.load(open("IrisKNN.h5", "wb")) #wb: write binary
+modelKNNIris = pickle.load(open("IrisKNN.h5", "rb")) 
 modelKNNIris.fit(X, Y)
 
 prediction = modelKNNIris.predict(df)
